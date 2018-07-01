@@ -5,7 +5,7 @@
 		
 		<div class="option-holder" v-for="(item,index) in results.optionArr">
 			<span>{{item.item}}</span>
-			
+			{{item.voteN}}
 			<div class="data">
 				<transition
 					v-on:before-enter="beforeEnter"
@@ -22,13 +22,12 @@
 	
 </template>
 <script>
-	import vote_data from '../vote.js'
 
 	export default{
 		data(){
 			return{
 				id:this.$route.params.id,
-				Item:null,
+	
 				options:[],
 				sum:0,
 				//每个选项所占的比例
@@ -41,11 +40,8 @@
 			}	
 		},
 		methods:{
-			getContent(){
-				this.Item=vote_data[0]
-				this.options=this.Item.option.split(',')
-				//console.log(this.options)
-			},
+	
+		
 			calcuData(){
 				for(var i=0;i<this.results.optionArr.length;i++){
 					this.sum+=parseInt(this.results.optionArr[i].voteNum)
@@ -75,7 +71,7 @@
 				
 			},
 			calcuPerWidth(){
-				for(var i=0;i<this.Item.voteNum;i++){
+				for(var i=0;i<this.results.optionArr.length;i++){
 					this.width.push(parseInt(this.allWidth)*this.per[i])
 				}		
 				console.log(this.width)
@@ -108,6 +104,7 @@
 						return ret
 					}]
 		    	}).then(function(response){
+		    		console.log(response.data)
 		    		_this.results=response.data
 		    		_this.calcuData()
 					_this.calcuPer()
@@ -119,10 +116,6 @@
 		    
 		},
 		created(){
-			this.getContent()
-			setTimeout(()=>{
-				
-			})
 		},
 		mounted(){
 			this.getVoteResult()

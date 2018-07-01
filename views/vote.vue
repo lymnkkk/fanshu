@@ -29,8 +29,7 @@
 	</div>
 </template>
 <script>
-	import list from '../vote.js'
-	
+
 	export default{
 		data(){
 			return{

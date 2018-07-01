@@ -1,7 +1,9 @@
 <template>
 	<div class="personal-show">
 		<div class="basic-holder">
-			<span>设置</span>
+			<router-link :to="'/logout/'">
+				<span class="set">设置</span>
+			</router-link>
 			<div class="avatar">
 				<img :src="avatar">
 			</div>
@@ -16,6 +18,13 @@
 			</div>
 		</router-link>
 		
+		<router-link :to="'/perPubVote/'">
+			<div class="part-vote">
+				<i class="fa fa-list"></i>
+				<span>我发表的投票</span>
+			</div>
+		</router-link>
+
 		<router-link :to="'/perVote/'">
 			<div class="part-vote">
 				<i class="fa fa-bar-chart-o"></i>
@@ -227,5 +236,8 @@
 		font-size:16px;
 		color:#954b58;
 		line-height:30px;
+	}
+	.set{
+		color:#000;
 	}
 </style>

@@ -30,7 +30,7 @@
 		data(){
 			return{
 				start:0,
-				end:4,
+				end:10,
 				vote:null,
 				isFull:false
 			}
@@ -83,8 +83,8 @@
 				})
 			},
 			load(){
-				this.start+=2
-				this.end+=2
+				this.start+=10
+				this.end+=10
 				this.getVoteList()
 			},
 			skip(event){

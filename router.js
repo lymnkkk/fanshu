@@ -56,6 +56,10 @@ const routers=[
 		component: (resolve) => require(['./views/perVote.vue'],resolve)
 	},
 	{
+		path:'/perPubVote/',
+		component: (resolve) => require(['./views/perPubVote.vue'],resolve)
+	},
+	{
 		path:'/allArticle/',
 		component:(resolve) => require(['./views/all-article.vue'],resolve)
 	},
@@ -63,7 +67,10 @@ const routers=[
 		path:'/allVote/',
 		component:(resolve) => require(['./views/all-vote.vue'],resolve)
 	},
-
+	{
+		path:'/logout/',
+		component:(resolve) => require(['./views/logout.vue'],resolve)
+	},	
 	{
 		path:'*',
 		redirect:'/index'

@@ -6,7 +6,6 @@ import Vuex from 'vuex';
 //导入app.vue组件
 import App from './app.vue';
 import './style.css';
-import './zh_CN.js';
 import { Upload } from 'element-ui';
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'

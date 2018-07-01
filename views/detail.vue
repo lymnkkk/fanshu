@@ -10,8 +10,8 @@
 			<h2>{{article.title}}</h2>
 			<div class="info">
 				<span>{{article.cat}}</span>
+				<span>{{article.userName}}发表于</span>
 				<span>{{article.createdAt}}</span>
-				<span>阅读</span>
 			</div>
 		</div>
 		<div class="content-holder content-holder-mod">
@@ -38,32 +38,7 @@
 			
 		},
 		computed:{
-		/*
-			getArticle(){
-				this.article=this.$store.state.articleList.find(item=>item.id == this.id)
-
-				//头图像
-				this.detail.push(this.article['headerImg'])
-
-				//标题
-				this.detail.push(this.article['title'])
-
-				//创建时间
-				this.detail.push(this.article['createdAt'])			
-				
-				//类型
-				this.detail.push(this.article['cat'])
-
-				return this.detail
-			},
-			getContent(){
-				this.article=this.$store.state.articleList.find(item=>item.id == this.id)
-
-				this.$nextTick(function(){
-					document.querySelector('.content-holder').innerHTML=this.article['content']
-				})
-			}
-			*/
+	
 		},
 		methods:{
 			getArticle(){

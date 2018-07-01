@@ -158,3 +158,6 @@ a,div,input,span{
 	left: 0;
 	z-index: 9998;
 }
+span,input{
+	font-size: 16px;
+}
