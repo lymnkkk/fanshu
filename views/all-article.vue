@@ -23,7 +23,6 @@
 		data(){
 			return{
 				start:0,
-				end:3,
 				article:null,
 				isFull:false
 			}
@@ -36,7 +35,7 @@
 					method:'post',
 					data:{
 						start:_this.start,
-						end:_this.end
+						end:3
 					},
 					transformRequest:[function(data){
 						let ret=''
@@ -48,17 +47,18 @@
 				}).then(function(response){
 					if(_this.article===null){
 						_this.article=response.data
+
 					}else{
 						let index=response.data.length
 						let i=0
 						for(i;i<index;i++){
 							_this.article.push(response.data[i])
 						}
-						if(_this.end>=response.data[i-1].length){
+						if(_this.article.length>=response.data[i-1].length){
 							console.log('1')
 							_this.isFull=true
 						}
-						console.log(_this.article)
+
 					}
 					
 
@@ -74,7 +74,6 @@
 
 			load(){
 				this.start+=3
-				this.end+=3
 				this.getArticleList()
 			}
 		},

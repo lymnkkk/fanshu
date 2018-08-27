@@ -7,7 +7,6 @@
     header("Access-Control-Allow-Headers:Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
 
     $start=$_POST['start'];
-    $end=$_POST['end'];
 
     $length_search=mysql_query("SELECT count(*) FROM article ") or die ('sql错误'.mysql_error());
     $length=mysql_fetch_row($length_search);
@@ -16,7 +15,7 @@
     $length_arr=array('length'=>$length[0]);
      
 
-    $article_search=mysql_query("SELECT id,headerImg,title,cat,userId,createdAt FROM article ORDER BY createdAt DESC LIMIT $start,$end ") or die ('sql错误'.mysql_error());
+    $article_search=mysql_query("SELECT id,headerImg,title,cat,userId,createdAt FROM article ORDER BY createdAt DESC LIMIT $start,3 ") or die ('sql错误'.mysql_error());
 
     $articleArr=[];
     $articleAll=[];
