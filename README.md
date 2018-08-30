@@ -18,7 +18,7 @@
 * UI框架element-ui
 
 后端：
-* 后台语言PHP
+* PHP
 * 数据库MySQL
 
 ### 安装依赖
