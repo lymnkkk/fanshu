@@ -49,15 +49,15 @@ const routers=[
 	},
 	{	
 		path:'/perArticle/',
-		component: (resolve) => require(['./views/perArticle.vue'],resolve)
+		component: (resolve) => require(['./views/per-article.vue'],resolve)
 	},
 	{	
 		path:'/perVote/',
-		component: (resolve) => require(['./views/perVote.vue'],resolve)
+		component: (resolve) => require(['./views/per-vote.vue'],resolve)
 	},
 	{
 		path:'/perPubVote/',
-		component: (resolve) => require(['./views/perPubVote.vue'],resolve)
+		component: (resolve) => require(['./views/per-pubVote.vue'],resolve)
 	},
 	{
 		path:'/allArticle/',

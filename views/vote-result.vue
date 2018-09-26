@@ -22,7 +22,7 @@
 	
 </template>
 <script>
-
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -91,7 +91,8 @@
 		    getVoteResult(){
 		    	let _this=this
 		    	this.$ajax({
-		    		url:'http://localhost:80/fanshu/api/get_voteResult.php',
+					// url:'http://localhost:8080/fanshu/api/get_voteResult.php',
+					url:`${config.api}/getVoteResult.php`,
 		    		method:'post',
 		    		data:{
 		    			voteId:_this.id
@@ -112,10 +113,7 @@
 		    	}).catch(function(error){
 		    		console.log(error)
 		    	})
-		    }
-		    
-		},
-		created(){
+		    }    
 		},
 		mounted(){
 			this.getVoteResult()

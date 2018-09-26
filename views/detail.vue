@@ -22,7 +22,7 @@
 </template>
 <script>
 	
-
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -30,21 +30,14 @@
 				content:'aa',
 				article:null,
 				detail:[],
-
 			}
-		},
-		methods:{
-			
-			
-		},
-		computed:{
-	
 		},
 		methods:{
 			getArticle(){
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_article.php',
+					// url:'http://localhost:8080/fanshu/api/get_article.php',
+					url:`${config.api}/getArticle.php`,
 					method:'post',
 					data:{
 						articleId:_this.id

@@ -30,7 +30,7 @@
 	</div>
 </template>
 <script>
-	
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -60,15 +60,14 @@
 				let _this=this
 
 				if(this.account === ''||this.password === ''){
-
 					this.isError = true
 					this.lack = true
-
 				}else{
 
 					this.$ajax({
 						method:'post',
-						url:'http://localhost:80/fanshu/api/login.php',
+						// url:'http://localhost:8080/fanshu/api/login.php',
+						url:`${config.api}/login.php`,
 						data:{
 							account:this.account,
 							password:this.password
@@ -93,7 +92,6 @@
 					}).catch(function(error){
 						console.log(error)
 					})
-
 				}
 			}
 				
@@ -206,7 +204,7 @@
 	}
 	.info-occu p{
 		line-height:30px;
-		fonr-size:12px;
+		font-size:12px;
 	}
 	.button-cancel{
 		text-align:center;

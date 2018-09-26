@@ -45,6 +45,7 @@
 	</div>
 </template>
 <script>
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -68,7 +69,8 @@
 					//获取用户信息
 					this.$ajax({
 						method:'post',
-						url:'http://localhost:80/fanshu/api/getInfo.php',
+						// url:'http://localhost:8080/fanshu/api/getInfo.php',
+						url:`${config.api}/getInfo.php`,
 						data:{
 							userId:_this.userId
 						},
@@ -96,7 +98,8 @@
 				this.shadeShow=false
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/edit_name.php',
+					// url:'http://localhost:8080/fanshu/api/edit_name.php',
+					url:`${config.api}/editName.php`,
 					method:'post',
 					data:{
 						userName:_this.newName,
@@ -229,7 +232,7 @@
 	}
 	.info-occu p{
 		line-height:40px;
-		fonr-size:12px;
+		font-size:12px;
 	}
 	.button-cancel{
 		text-align:center;

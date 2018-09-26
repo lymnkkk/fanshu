@@ -7,11 +7,6 @@
 </template>
 <script>
 	export default{
-		data(){
-			return{
-
-			}
-		},
 		methods:{
 			logout(){
 				this.$store.state.userId=0

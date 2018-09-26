@@ -36,6 +36,7 @@
     </div>
 </template>
 <script>
+	import config from '../config'
     import imgUpload from '../components/img-upload.vue'
     import quillEditor from '../components/quill-editor.vue'
     
@@ -83,7 +84,8 @@
                   }else{
                     this.tip=false
                     this.$ajax({
-                        url:'http://localhost:80/fanshu/api/add_article.php',
+                        // url:'http://localhost:8080/fanshu/api/add_article.php',
+                        url:`${config.api}/addArticle.php`,
                         method:'post',
                         data:{
                            headerImg:_this.$refs.headerImg.imageUrl,
@@ -105,15 +107,13 @@
                        setTimeout(()=>{
                           _this.isSuccess=false
                           _this.$router.push('/select/')
-
                        },1000)
                        
                     }).catch(function(error){
                        console.log(error)
                     })
                   }
-            }
-            
+            }  
           },
           
     }

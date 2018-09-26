@@ -1,7 +1,6 @@
 <template>
 	<div class="vote-show">	
-		<h2>{{vote.title}}</h2>
-		
+		<h2>{{vote.title}}</h2>	
 		<div v-for="(option,index) in vote.optionArr" 
 			class="vote-item"
 			:class="{'vote2': vote['voteCat']=== '2'}"
@@ -18,18 +17,15 @@
 				<div :class="{'shade':checkNo == index}">	
 				</div>
 				<div :class="{'check':checkNo == index,'small': vote['voteCat']=== '2'}">
-				</div>
-				
+				</div>	
 		</div>
-
 		<router-link :to="'/result/'+parseInt(vote.id)">
 			<button class="button" @click="voteIn">投票</button>
-		</router-link>
-		
+		</router-link>		
 	</div>
 </template>
 <script>
-
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -46,12 +42,7 @@
 				voteCat:0,
 			}
 		},
-		computed:{
-		
-		},
-		
 		methods:{
-			
 			voteOne(event){
 				var el=event.currentTarget
 				if(this.checkNo === el.getAttribute('name')){
@@ -73,9 +64,9 @@
 				if(this.checkNo === -1){
 					
 				}else{
-
 					this.$ajax({
-						url:'http://localhost:80/fanshu/api/vote.php',
+						// url:'http://localhost:8080/fanshu/api/vote.php',
+						url:`${config.api}/vote.php`,
 						method:'post',
 						data:{
 							voteId:_this.voteId,
@@ -100,7 +91,8 @@
 			getVote(){
 				let _this=this
 				_this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_vote.php',
+					// url:'http://localhost:8080/fanshu/api/get_vote.php',
+					url:`${config.api}/getVote.php`,
 					method:'post',
 					data:{
 						voteId:_this.id

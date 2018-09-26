@@ -52,6 +52,7 @@
 	</div>
 </template>
 <script>
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -87,15 +88,14 @@
 				let _this=this
 
 				if(this.account === '' || this.password === ''){
-
 					this.lack = true
 					this.isError=true
-
 				}else{
 
 					this.$ajax({
 						method:'post',
-						url:'http://localhost:80/fanshu/api/register.php',
+						// url:'http://localhost:8080/fanshu/api/register.php',
+						url:`${config.api}/register.php`,
 						headers: {
 						    'Content-Type': 'application/x-www-form-urlencoded'
 						},
@@ -126,7 +126,6 @@
 					}).catch(function(error){
 						console.log(error);
 					})
-
 				}	
 			}
 		},
@@ -280,7 +279,7 @@
 	}
 	.info-occu p{
 		line-height:30px;
-		fonr-size:12px;
+		font-size:12px;
 	}
 	.button-cancel{
 		text-align:center;

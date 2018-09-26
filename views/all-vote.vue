@@ -4,18 +4,13 @@
 			<p>更多投票</p>
 		</div>
 		<div class="vote-list" >
-
 			<ul>
-
 				<li v-for="voteItem in vote" :value="voteItem.id">
-
 					<div class="vote-item" @click="skip" :value="voteItem.id">
 						<p>{{voteItem.title}}</p>
 					</div>
-
 				</li>
 			</ul>
-
 		</div>
 		<div class="load" @click="load" v-if="isFull === false">
 			加载更多
@@ -26,6 +21,7 @@
 	</div>
 </template>
 <script>
+	import config from '../config'
 	export default{
 		data(){
 			return{
@@ -39,7 +35,8 @@
 			getVoteList(){
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_voteList.php',
+					// url:'http://localhost:8080/fanshu/api/get_voteList.php',
+					url:`${config.api}/getVoteList.php`,
 					method:'post',
 					data:{
 						start:_this.start,
@@ -95,7 +92,8 @@
 					let userId=this.$store.state.userId
 
 					this.$ajax({
-						url:'http://localhost:80/fanshu/api/voteUser.php',
+						// url:'http://localhost:8080/fanshu/api/voteUser.php',
+						url:`${config.api}/voteUser.php`,
 						method:'post',
 						data:{
 							userId:userId,

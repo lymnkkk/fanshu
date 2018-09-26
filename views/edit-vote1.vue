@@ -27,7 +27,7 @@
 	    		<img-upload :method="method" ref="voteUpload"></img-upload>	  
 	    	</div>  	
 	    	<input type="text" maxlength="12" placeholder="请输入选项名称"
-	    	v-model="value"></input>
+	    	v-model="value"/>
 	    	<button class="button" @click="addVote">+</button>
 	    </div>
 	    <div class="submit-holder">
@@ -45,6 +45,7 @@
 	</div>
 </template>
 <script>
+	import config from '../config'
 	import imgUpload from '../components/img-upload.vue'
 
 	export default{
@@ -103,7 +104,8 @@
 				}else{
 					this.tip=false
 					_this.$ajax({
-						url:'http://localhost:80/fanshu/api/add_vote1.php',
+						// url:'http://localhost:8080/fanshu/api/add_vote1.php',
+						url:`${config.api}/addVote1.php`,
 						method:'post',
 						data:{
 							title:_this.title,
@@ -115,8 +117,7 @@
 						    'Content-Type': 'application/x-www-form-urlencoded'
 						},
 						transformRequest:[function(data){
-							let ret=JSON.stringify(data)
-							
+							let ret=JSON.stringify(data)							
 							/*
 							for(let it in data){
 								ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'

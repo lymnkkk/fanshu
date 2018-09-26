@@ -10,7 +10,7 @@
 </template>
 <script>
 	  
-
+	import config from '../config'
     import {quillEditor,Quill} from 'vue-quill-editor'
     import {container, ImageExtend, QuillWatch} from 'quill-image-extend-module'
 
@@ -29,7 +29,8 @@
                    ImageExtend: {
                     loading: true,
                     name: 'img',
-                    action: 'http://localhost:80/fanshu/api/upload.php',
+                    // action: 'http://localhost:8080/fanshu/api/upload.php',
+                    action:`${config.api}/upload.php`,
                     response: (res) => {
                       return res.data
                     },

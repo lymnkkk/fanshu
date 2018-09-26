@@ -4,7 +4,7 @@
 			<p>更多文章</p>
 		</div>
 		
-			<arti :arti="getList"></arti>
+		<arti :arti="getList"></arti>
 			
 		<div class="load" @click="load" v-if="isFull === false">
 			加载更多
@@ -15,6 +15,7 @@
 	</div>
 </template>
 <script>
+	import config from '../config'
 	import arti from '../components/article.vue'
 	export default{
 		components:{
@@ -31,7 +32,8 @@
 			getArticleList(){
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_articleList.php',
+					//url:`${config.api}/get_articleList.php`'http://localhost:8080/fanshu/api/get_articleList.php',
+					url:`${config.api}/getArticleList.php`,
 					method:'post',
 					data:{
 						start:_this.start,
@@ -89,9 +91,7 @@
 	}
 </script>
 <style scoped>
-	.list{
-		
-	}
+
 	.load{
 		width:100px;
 		height:30px;

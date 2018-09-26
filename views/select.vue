@@ -9,19 +9,17 @@
 		<router-link :to="'/vote2/'">
 			<div class="edit-vote">发起投票(纯文本)</div>
 		</router-link>
-
 	</div>
-	
 </template>
 <script>
+	import config from '../config'
 	export default{
 		data(){
 			return{
 				occu:true
 			}
 		},
-		methods:{
-			
+		methods:{			
 			cancelShade(){
 				this.occu=false
 				

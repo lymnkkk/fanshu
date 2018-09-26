@@ -9,15 +9,11 @@
 		</div>
 		<div class="vote-list" >
 			<ul>
-
 				<li v-for="voteItem in vote" :value="voteItem.id">
-
 					<div class="vote-item" @click="skip" :value="voteItem.id">
 						<p>{{voteItem.title}}</p>
 					</div>
-
 				</li>
-
 			</ul>
 		</div>
 		<div class="article-reco">
@@ -26,12 +22,11 @@
 				<span>更多 ></span>
 			</router-link>
 		</div>
-		
-			<arti :arti="article"></arti>
-		
+		<arti :arti="article"></arti>
 	</div>
 </template>
 <script>
+	import config from '../config'
 	import carousel from '../components/carousel.vue'
 	import arti from '../components/article.vue'
 	export default{
@@ -69,16 +64,15 @@
 						src:'../assets/carousel-pic4.jpg',
 						title:'《赛博朋克2077》闭门演示讲了什么？'
 					}
-				],
-				
-				
+				],			
 			}
 		},
 		methods:{
 			getVoteList(){
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_voteList.php',
+					// url:'http://localhost:8080/fanshu/api/get_voteList.php',
+					url:`${config.api}/getVoteList.php`,
 					method:'post',
 					data:{
 						start:_this.voteStart,
@@ -109,7 +103,8 @@
 			getArticleList(){
 				let _this=this
 				this.$ajax({
-					url:'http://localhost:80/fanshu/api/get_articleList.php',
+					// url:'http://localhost:8080/fanshu/api/get_articleList.php',
+					url:`${config.api}/getArticleList.php`,
 					method:'post',
 					data:{
 						start:_this.artiStart,
@@ -143,7 +138,8 @@
 					let userId=this.$store.state.userId
 
 					this.$ajax({
-						url:'http://localhost:80/fanshu/api/voteUser.php',
+						// url:'http://localhost:8080/fanshu/api/voteUser.php',
+						url:`${config.api}/voteUser.php`,
 						method:'post',
 						data:{
 							userId:userId,
@@ -157,7 +153,6 @@
 							return ret
 						}]
 					}).then(function(response){
-
 						//console.log(response.data)
 						if(response.data===1){
 							_this.$router.push('/result/'+voteId)
